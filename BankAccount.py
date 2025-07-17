@@ -11,11 +11,15 @@ class BankAccount:
             return "The deposit value is less then minimum value"
 
     def withdraw(self, value: float) -> str:
-        if value > 0:
+        if value < 0:
+            return "The withdraw amount is less then minimum value."
+
+        if self.__balance - value >= 0:
             self.__balance -= value
             return "Withdraw from the balance has been made."
         else:
-            return "The withdraw amount is less then minimum value"
+            return "The account does not have sufficient funds for withdrawal."
+
 
     @property
     def get_balance(self) -> float:
