@@ -6,20 +6,19 @@ class BankAccount:
     def deposit(self, value: float) -> str:
         if value > 0:
             self.__balance += value
-            return "Deposit to the balance has been made."
+            return "Пополнение средст выполнено успешно!"
         else:
-            return "The deposit value is less then minimum value"
+            return "Ошибка: сумма депозита меньше или равна нуля!"
 
     def withdraw(self, value: float) -> str:
         if value < 0:
-            return "The withdraw amount is less then minimum value."
+            return "Ошибка: сумма для снятия средств меньше или равна нулю!"
 
         if self.__balance - value >= 0:
             self.__balance -= value
-            return "Withdraw from the balance has been made."
+            return "Снятие средств выполнено успешно!"
         else:
-            return "The account does not have sufficient funds for withdrawal."
-
+            return "Ошибка: на вашем балансе недостаточно средств для снятия!"
 
     @property
     def get_balance(self) -> float:
